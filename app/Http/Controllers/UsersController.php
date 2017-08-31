@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 Use App\Users;
+use Request;
 
 class UsersController extends Controller
 {/**
@@ -23,10 +23,12 @@ class UsersController extends Controller
     *
     * @return Response
     */
-   public function create()
+   public function create(Request $request)
    {
-      //
-   }
+	    $user=$request::all();
+	    Users::create($user);
+	    return $user;
+  }
    /**
     * Store a newly created resource in storage.
     *
@@ -44,7 +46,10 @@ class UsersController extends Controller
     */
    public function show($id)
    {
-      //
+     	$id = intval($id);
+      $user=Users::find($id);
+	    
+	    return $user;
    }
 
    /**

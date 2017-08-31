@@ -20,3 +20,14 @@ use Illuminate\Http\Request;
 Route::get('foo', function () {
     return 'Hello World';
 });
+
+
+Route::post('user', 'RegisterUserCtr@register');
+
+
+
+Route::get('user', 'UsersController@index');
+Route::get('user/{id}', 'UsersController@show');
+Route::post('user', 'UsersController@create');
+Route::put('user/{Users}', 'UserController@update');
+Route::delete('user/{Users}', 'UsersController@delete');
