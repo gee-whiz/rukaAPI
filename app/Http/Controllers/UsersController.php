@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 Use App\Users;
 use Request;
+use Auth;
+use Input;
 
 class UsersController extends Controller
 {/**
@@ -46,10 +48,10 @@ class UsersController extends Controller
     */
    public function show($id)
    {
-     	$id = intval($id);
-      $user=Users::find($id);
-	    
-	    return $user;
+
+      $id = intval($id);
+      $user=Users::find($id);  
+	  return $user;
    }
 
    /**
@@ -82,5 +84,5 @@ class UsersController extends Controller
    {
       //
    }
-    //
+
 }
